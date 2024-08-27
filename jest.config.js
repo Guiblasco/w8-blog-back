@@ -4,6 +4,7 @@ export default {
   transform: {
     "^.+.tsx?$": ["ts-jest", {}],
   },
-  rootDir: "src",
+  testMatch: ["**/src/**/*.test.ts"],
+  collectCoverageFrom: ["src/**/*.ts", "!src/index.ts"],
   resolver: "ts-jest-resolver",
 };
