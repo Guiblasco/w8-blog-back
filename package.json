@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "main": "./dist/index.js",
   "type": "module",
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "eslint --max-warnings 0"
-    ]
-  },
   "scripts": {
     "test": "jest",
     "test:dev": "jest --watchAll",
