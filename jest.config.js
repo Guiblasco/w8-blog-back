@@ -5,6 +5,10 @@ export default {
     "^.+.tsx?$": ["ts-jest", {}],
   },
   testMatch: ["**/src/**/*.test.ts"],
-  collectCoverageFrom: ["src/**/*.ts", "!src/index.ts"],
+  collectCoverageFrom: [
+    "src/**/*.ts",
+    "!src/index.ts",
+    "!src/server/startServer.ts",
+  ],
   resolver: "ts-jest-resolver",
 };
