@@ -10,7 +10,11 @@ describe("Given a GET / endpoint", () => {
 
       const response = await request(app).get(path).expect(statusCode);
 
-      expect(response.body.message).toBe(expectedMessage);
+      const responseBody = response.body as {
+        message: "Pong";
+      };
+
+      expect(responseBody.message).toBe(expectedMessage);
     });
   });
 });
