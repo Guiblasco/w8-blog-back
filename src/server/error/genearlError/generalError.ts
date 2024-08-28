@@ -7,7 +7,7 @@ export const generalError = (
   res: Response,
   _next: NextFunction,
 ): void => {
-  res
-    .status((error as ServerError).statusCode)
-    .json({ message: error.message });
+  const statusCode = (error as ServerError).statusCode ?? 500;
+
+  res.status(statusCode).json({ message: error.message });
 };
