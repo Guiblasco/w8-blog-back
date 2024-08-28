@@ -1,5 +1,5 @@
-interface ServerErrorEstructure {
+interface ServerErrorStructure {
   statusCode: number;
 }
 
-export default ServerErrorEstructure;
+export default ServerErrorStructure;

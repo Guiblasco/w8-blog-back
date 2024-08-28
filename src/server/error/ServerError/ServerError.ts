@@ -1,6 +1,6 @@
-import type ServerErrorEstructure from "./types";
+import type ServerErrorStructure from "./types";
 
-class ServerError extends Error implements ServerErrorEstructure {
+class ServerError extends Error implements ServerErrorStructure {
   statusCode: number;
 
   constructor(message: string, statusCode: number) {
