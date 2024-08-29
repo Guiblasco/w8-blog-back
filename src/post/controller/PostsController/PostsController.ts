@@ -1,12 +1,23 @@
 import type { Request, Response, NextFunction } from "express";
 import type { PostsControllerStructure } from "./types";
-import { type Post } from "../../types";
+import Post from "../../model/Post.js";
+import { type PostStructure } from "../../types";
+import { type Model } from "mongoose";
 
 class PostController implements PostsControllerStructure {
-  constructor(private readonly posts: Post[]) {}
+  constructor(private readonly postModel: Model<PostStructure>) {}
 
-  getPosts = (_req: Request, res: Response, _next: NextFunction): void => {
-    res.status(200).json({ posts: this.posts });
+  getPosts = async (
+    _req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const posts = await this.postModel.find().exec();
+      res.status(200).json({ posts });
+    } catch (error) {
+      next(error);
+    }
   };
 }
 
