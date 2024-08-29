@@ -1,34 +1,30 @@
 import { Schema } from "mongoose";
+import { type PostStructure } from "../../../types";
 
-const postSchema = new Schema({
+const postSchema = new Schema<PostStructure>({
   title: {
     type: String,
-    require: true,
+    required: true,
   },
-
   author: {
     type: String,
-    require: true,
+    required: true,
   },
-
-  date: {
-    type: Number,
-    require: true,
-  },
-
-  imageUrl: {
-    type: String,
-    require: true,
-  },
-
   alternativeText: {
     type: String,
-    require: true,
+    required: true,
   },
-
   content: {
     type: String,
-    require: true,
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Number,
+    required: true,
   },
 });
 
