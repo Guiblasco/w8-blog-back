@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostStructure {
   id: string;
   title: string;
   author: string;
