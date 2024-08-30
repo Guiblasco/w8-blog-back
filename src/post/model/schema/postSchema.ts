@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { type PostStructure } from "../../../types";
+import type { PostStructure } from "../../types";
 
 const postSchema = new Schema<PostStructure>({
   title: {

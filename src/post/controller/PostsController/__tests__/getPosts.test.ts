@@ -1,7 +1,7 @@
 import type { NextFunction, Response, Request } from "express";
-import PostController from "./PostsController";
-import type { PostStructure } from "../../types";
 import type { Model } from "mongoose";
+import type { PostStructure } from "../../../types";
+import PostController from "../PostsController.js";
 
 beforeAll(() => {
   jest.clearAllMocks();
