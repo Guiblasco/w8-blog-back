@@ -1,6 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
 import type { PostsControllerStructure } from "./types";
-import Post from "../../model/Post.js";
 import { type PostStructure } from "../../types";
 import { type Model } from "mongoose";
 
