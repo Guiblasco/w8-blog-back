@@ -6,6 +6,6 @@ const postsRouter = express.Router();
 
 const postController = new PostController(Post);
 
-postsRouter.use("/", postController.getPosts);
+postsRouter.get("/", postController.getPosts);
 
 export default postsRouter;

@@ -14,7 +14,7 @@ app.use(morgan("dev"));
 
 app.get("/", getPing);
 
-app.get("/posts", postsRouter);
+app.use("/posts", postsRouter);
 
 app.use(notFoundEndpointError);
 
