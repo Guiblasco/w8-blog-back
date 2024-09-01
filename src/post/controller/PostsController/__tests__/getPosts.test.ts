@@ -2,6 +2,7 @@ import type { NextFunction, Response, Request } from "express";
 import type { Model } from "mongoose";
 import type { PostStructure } from "../../../types";
 import PostController from "../PostsController.js";
+import { postsMocks } from "../../../../mocks/postsMocks";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -9,27 +10,9 @@ beforeAll(() => {
 
 describe("Given getPosts method from PostsController class", () => {
   describe("When it receives a request", () => {
-    const posts: Array<Omit<PostStructure, "id">> = [
-      {
-        author: "Guillermius",
-        title: "",
-        alternativeText: "",
-        content: "",
-        imageUrl: "",
-        date: Number(""),
-      },
-      {
-        author: "Alexisus",
-        title: "",
-        alternativeText: "",
-        content: "",
-        imageUrl: "",
-        date: Number(""),
-      },
-    ];
     const postModel: Partial<Model<PostStructure>> = {
       find: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(posts),
+        exec: jest.fn().mockResolvedValue(postsMocks),
       }),
     };
     const postController = new PostController(
@@ -46,7 +29,9 @@ describe("Given getPosts method from PostsController class", () => {
       await postController.getPosts(req as Request, res as Response, next);
 
       expect(res.status).toHaveBeenCalledWith(200);
-      expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ posts }));
+      expect(res.json).toHaveBeenCalledWith(
+        expect.objectContaining({ posts: postsMocks }),
+      );
     });
   });
 });
